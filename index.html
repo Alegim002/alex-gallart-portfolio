@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio profesional de Alex Gallart Gimeno, administrador de sistemas especializado en Microsoft 365, Windows Server, Active Directory, redes, virtualización, ciberseguridad y automatización.">
+  <meta name="theme-color" content="#071425">
+  <meta property="og:title" content="Alex Gallart Gimeno | Administrador de sistemas">
+  <meta property="og:description" content="Sistemas, Microsoft 365, redes, virtualización, ciberseguridad y automatización.">
+  <meta property="og:type" content="website">
+  <title>Alex Gallart Gimeno | Administrador de sistemas</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --surface: rgba(13, 31, 53, .78);
+      --surface-solid: #0d1f35;
+      --border: rgba(130, 191, 255, .18);
+      --text: #eff7ff;
+      --muted: #a6bad0;
+      --blue: #3ea6ff;
+      --cyan: #55e5dd;
+      --shadow: 0 22px 70px rgba(0, 0, 0, .26);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 82% 4%, rgba(62, 166, 255, .18), transparent 30rem),
+        radial-gradient(circle at 16% 28%, rgba(85, 229, 221, .1), transparent 24rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .skip {
+      position: fixed; left: 16px; top: -80px; z-index: 99;
+      padding: 10px 14px; border-radius: 10px; background: #fff; color: #07111f;
+    }
+    .skip:focus { top: 16px; }
+
+    header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 17, 31, .76);
+      border-bottom: 1px solid var(--border);
+    }
+    nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { text-decoration: none; font-weight: 800; letter-spacing: -.02em; }
+    .brand span { color: var(--cyan); }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .93rem; font-weight: 650; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--text); }
+    .lang {
+      border: 1px solid var(--border); background: rgba(255,255,255,.03); color: var(--text);
+      border-radius: 999px; padding: 8px 12px; cursor: pointer; font-weight: 750;
+    }
+
+    main { overflow: hidden; }
+    .hero { min-height: 670px; display: grid; align-items: center; padding: 92px 0 74px; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 64px; align-items: center; }
+    .eyebrow { color: var(--cyan); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .78rem; }
+    h1 { margin: 14px 0 18px; font-size: clamp(2.75rem, 7vw, 5.9rem); letter-spacing: -.065em; line-height: .96; }
+    .gradient { background: linear-gradient(100deg, var(--blue), var(--cyan)); -webkit-background-clip: text; color: transparent; }
+    .lead { max-width: 740px; color: var(--muted); font-size: clamp(1.05rem, 2.2vw, 1.25rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 19px; border-radius: 13px; text-decoration: none; font-weight: 800; border: 1px solid var(--border); }
+    .btn-primary { background: linear-gradient(120deg, #168fff, #38c6cf); color: #03101e; border: 0; }
+    .btn-secondary { background: rgba(255,255,255,.035); }
+    .btn:hover { transform: translateY(-2px); }
+
+    .visual { position: relative; aspect-ratio: 1; display: grid; place-items: center; }
+    .orbit { position: absolute; border: 1px solid rgba(85,229,221,.23); border-radius: 50%; animation: spin 28s linear infinite; }
+    .orbit.one { inset: 6%; }
+    .orbit.two { inset: 18%; animation-direction: reverse; animation-duration: 20s; }
+    .orbit::before, .orbit::after { content: ""; position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 25px var(--cyan); }
+    .orbit::before { top: 12%; left: 16%; }
+    .orbit::after { right: 4%; bottom: 30%; background: var(--blue); }
+    .core {
+      width: 52%; aspect-ratio: 1; border-radius: 28px; display: grid; place-items: center;
+      background: linear-gradient(145deg, rgba(62,166,255,.26), rgba(85,229,221,.08));
+      border: 1px solid rgba(125,200,255,.28); box-shadow: var(--shadow), inset 0 0 50px rgba(62,166,255,.12);
+    }
+    .core svg { width: 52%; height: 52%; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    section { padding: 88px 0; }
+    .section-head { max-width: 720px; margin-bottom: 34px; }
+    h2 { margin: 8px 0 12px; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -.045em; line-height: 1.05; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      padding: 24px; border-radius: var(--radius); border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      box-shadow: var(--shadow);
+    }
+    .card h3 { margin: 12px 0 8px; font-size: 1.1rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: rgba(62,166,255,.13); color: var(--cyan); font-weight: 900; }
+
+    .experience { display: grid; grid-template-columns: .7fr 1.3fr; gap: 40px; }
+    .timeline { display: grid; gap: 18px; }
+    .job { position: relative; padding: 28px; }
+    .job-top { display: flex; justify-content: space-between; gap: 18px; align-items: start; }
+    .job h3 { margin: 0; font-size: 1.35rem; }
+    .job .company { color: var(--cyan); font-weight: 750; }
+    .date { color: var(--muted); white-space: nowrap; font-size: .92rem; }
+    .job ul { color: var(--muted); margin: 18px 0 0; padding-left: 20px; }
+    .job li + li { margin-top: 8px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { padding: 9px 12px; border-radius: 999px; background: rgba(62,166,255,.09); border: 1px solid var(--border); color: #dcebfa; font-size: .9rem; }
+    .education { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .education .card { min-height: 172px; }
+    .meta { color: var(--cyan); font-size: .86rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
+
+    .contact { text-align: center; padding-bottom: 120px; }
+    .contact-box { padding: 50px 28px; background: linear-gradient(145deg, rgba(62,166,255,.16), rgba(85,229,221,.07)); }
+    .contact-box p { color: var(--muted); max-width: 650px; margin: 12px auto 26px; }
+    footer { padding: 28px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 20px; }
+
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="es"] { display: none; }
+    body.en [data-lang="en"] { display: initial; }
+    body.en p[data-lang="en"], body.en div[data-lang="en"], body.en span[data-lang="en"] { display: block; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .experience { grid-template-columns: 1fr; }
+      .visual { width: min(520px, 100%); margin: 0 auto; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .nav-links a { display: none; }
+      .hero { min-height: auto; padding-top: 70px; }
+      .hero-grid { gap: 38px; }
+      .grid, .education { grid-template-columns: 1fr; }
+      .job-top { display: block; }
+      .date { display: inline-block; margin-top: 6px; }
+      footer .wrap { display: block; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .orbit { animation: none; }
+      .btn:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header>
+    <nav class="wrap" aria-label="Navegación principal">
+      <a class="brand" href="#top">Alex<span>.</span></a>
+      <div class="nav-links">
+        <a href="#perfil"><span data-lang="es">Perfil</span><span data-lang="en">Profile</span></a>
+        <a href="#experiencia"><span data-lang="es">Experiencia</span><span data-lang="en">Experience</span></a>
+        <a href="#formacion"><span data-lang="es">Formación</span><span data-lang="en">Education</span></a>
+        <button class="lang" id="langToggle" type="button" aria-label="Cambiar idioma">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span data-lang="es">Administrador de sistemas</span><span data-lang="en">Systems Administrator</span></div>
+          <h1>Alex Gallart<br><span class="gradient">Gimeno</span></h1>
+          <p class="lead" data-lang="es">Especializado en Microsoft 365, Windows Server, Active Directory, redes, virtualización, ciberseguridad y automatización de procesos con n8n.</p>
+          <p class="lead" data-lang="en">Specialized in Microsoft 365, Windows Server, Active Directory, networking, virtualization, cybersecurity and process automation with n8n.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/alex-gallart-gimeno-810183253/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn btn-secondary" href="https://github.com/Alegim002" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+        <div class="visual" aria-hidden="true">
+          <div class="orbit one"></div><div class="orbit two"></div>
+          <div class="core">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="25" y="20" width="70" height="80" rx="12" stroke="#55e5dd" stroke-width="4"/>
+              <path d="M39 39h42M39 58h42M39 77h42" stroke="#3ea6ff" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="82" cy="39" r="3" fill="#55e5dd"/><circle cx="82" cy="58" r="3" fill="#55e5dd"/><circle cx="82" cy="77" r="3" fill="#55e5dd"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfil">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><span data-lang="es">Perfil profesional</span><span data-lang="en">Professional profile</span></div>
+          <h2 data-lang="es">Infraestructura fiable, segura y automatizada</h2>
+          <h2 data-lang="en">Reliable, secure and automated infrastructure</h2>
+          <p data-lang="es">Experiencia práctica en la gestión, mantenimiento y soporte de entornos IT, combinando administración de sistemas, atención técnica y mejora continua.</p>
+          <p data-lang="en">Hands-on experience managing, maintaining and supporting IT environments, combining systems administration, technical support and continuous improvement.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="icon">01</div><h3>Microsoft 365</h3><p data-lang="es">Usuarios, licencias, Exchange Online, MFA, Teams, OneDrive y SharePoint.</p><p data-lang="en">Users, licensing, Exchange Online, MFA, Teams, OneDrive and SharePoint.</p></article>
+          <article class="card"><div class="icon">02</div><h3>Windows &amp; AD</h3><p data-lang="es">Windows Server, Active Directory, permisos, dominios y políticas de grupo.</p><p data-lang="en">Windows Server, Active Directory, permissions, domains and Group Policy.</p></article>
+          <article class="card"><div class="icon">03</div><h3 data-lang="es">Redes</h3><h3 data-lang="en">Networking</h3><p>Ubiquiti, Cisco, TP-Link, VLAN, DHCP, DNS, switches y puntos de acceso.</p></article>
+          <article class="card"><div class="icon">04</div><h3 data-lang="es">Virtualización</h3><h3 data-lang="en">Virtualization</h3><p>Hyper-V, VirtualBox, migration, recovery and virtual machine support.</p></article>
+          <article class="card"><div class="icon">05</div><h3 data-lang="es">Continuidad</h3><h3 data-lang="en">Continuity</h3><p>Synology, Active Backup for Business, Hyper Backup and Snapshot Replication.</p></article>
+          <article class="card"><div class="icon">06</div><h3 data-lang="es">Seguridad y automatización</h3><h3 data-lang="en">Security &amp; automation</h3><p>Panda, Kaspersky, endpoint security, n8n and workflow optimization.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="wrap experience">
+        <div class="section-head">
+          <div class="eyebrow"><span data-lang="es">Experiencia</span><span data-lang="en">Experience</span></div>
+          <h2 data-lang="es">Trabajo técnico con impacto real</h2>
+          <h2 data-lang="en">Technical work with real impact</h2>
+          <p data-lang="es">Administración de infraestructuras, soporte y automatización para entornos empresariales.</p>
+          <p data-lang="en">Infrastructure administration, support and automation for business environments.</p>
+        </div>
+        <div class="timeline">
+          <article class="card job">
+            <div class="job-top"><div><h3 data-lang="es">Administrador de sistemas</h3><h3 data-lang="en">Systems Administrator</h3><div class="company">Ibermedia</div></div><div class="date"><span data-lang="es">Feb. 2025 — actualidad</span><span data-lang="en">Feb 2025 — present</span></div></div>
+            <ul data-lang="es"><li>Administración de Windows Server, Active Directory y Microsoft 365.</li><li>Gestión de redes, virtualización, copias de seguridad y seguridad endpoint.</li><li>Soporte técnico remoto y presencial, y automatización con n8n.</li></ul>
+            <ul data-lang="en"><li>Administration of Windows Server, Active Directory and Microsoft 365.</li><li>Networking, virtualization, backups and endpoint security management.</li><li>Remote and on-site technical support, plus n8n automation.</li></ul>
+          </article>
+          <article class="card job">
+            <div class="job-top"><div><h3 data-lang="es">Administrador de sistemas informáticos</h3><h3 data-lang="en">IT Systems Administrator Intern</h3><div class="company">Entidad Valenciana de Vivienda y Suelo</div></div><div class="date"><span data-lang="es">Mar. — jun. 2022</span><span data-lang="en">Mar — Jun 2022</span></div></div>
+            <p data-lang="es">Prácticas formativas en sistemas, redes, soporte técnico y resolución de incidencias.</p>
+            <p data-lang="en">Internship focused on systems, networking, technical support and incident resolution.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="tecnologias-title">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">Stack</div><h2 id="tecnologias-title"><span data-lang="es">Tecnologías</span><span data-lang="en">Technologies</span></h2></div>
+        <div class="chips" aria-label="Tecnologías principales">
+          <span class="chip">Microsoft 365</span><span class="chip">Windows Server</span><span class="chip">Active Directory</span><span class="chip">Exchange Online</span><span class="chip">Hyper-V</span><span class="chip">VirtualBox</span><span class="chip">Synology</span><span class="chip">Ubiquiti</span><span class="chip">Cisco</span><span class="chip">VLAN</span><span class="chip">DHCP</span><span class="chip">DNS</span><span class="chip">Panda Security</span><span class="chip">Kaspersky</span><span class="chip">n8n</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacion">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow"><span data-lang="es">Formación</span><span data-lang="en">Education</span></div><h2 data-lang="es">Aprendizaje continuo</h2><h2 data-lang="en">Continuous learning</h2></div>
+        <div class="education">
+          <article class="card"><div class="meta">2026 · BIG School / Universidad Isabel I</div><h3 data-lang="es">Doble titulación en Inteligencia Artificial</h3><h3 data-lang="en">Dual qualification in Artificial Intelligence</h3><p data-lang="es">Máster Profesional en IA + Experto en IA · 150 h · 6 ECTS.</p><p data-lang="en">Professional Master's in AI + Expert Certificate in AI · 150 hours · 6 ECTS.</p></article>
+          <article class="card"><div class="meta">2026 · BIG School</div><h3 data-lang="es">Ciberseguridad y Hacking Ético</h3><h3 data-lang="en">Cybersecurity and Ethical Hacking</h3><p data-lang="es">Máster profesional orientado a seguridad defensiva y evaluación técnica.</p><p data-lang="en">Professional master's program focused on defensive security and technical assessment.</p></article>
+          <article class="card"><div class="meta">2024 · IES Abastos</div><h3 data-lang="es">Administración de Sistemas Informáticos en Red</h3><h3 data-lang="en">Networked Computer Systems Administration</h3><p data-lang="es">Técnico Superior · ASIR.</p><p data-lang="en">Advanced Vocational Diploma.</p></article>
+          <article class="card"><div class="meta">2022 · IES Serpis</div><h3 data-lang="es">Sistemas Microinformáticos y Redes</h3><h3 data-lang="en">Microcomputer Systems and Networks</h3><p data-lang="es">Técnico · SMR.</p><p data-lang="en">Vocational Diploma.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="wrap"><div class="card contact-box"><div class="eyebrow"><span data-lang="es">Contacto profesional</span><span data-lang="en">Professional contact</span></div><h2 data-lang="es">Hablemos de sistemas, seguridad y automatización</h2><h2 data-lang="en">Let's talk systems, security and automation</h2><p data-lang="es">Disponible para conectar con profesionales y empresas interesadas en infraestructura, Microsoft 365, ciberseguridad y mejora de procesos.</p><p data-lang="en">Open to connecting with professionals and companies interested in infrastructure, Microsoft 365, cybersecurity and process improvement.</p><a class="btn btn-primary" href="https://www.linkedin.com/in/alex-gallart-gimeno-810183253/" target="_blank" rel="noopener noreferrer"><span data-lang="es">Contactar por LinkedIn</span><span data-lang="en">Contact on LinkedIn</span></a></div></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© 2026 Alex Gallart Gimeno</span><span>Valencia, España</span></div></footer>
+  <script>
+    const toggle = document.getElementById('langToggle');
+    const saved = localStorage.getItem('portfolio-lang');
+    if (saved === 'en') { document.body.classList.add('en'); toggle.textContent = 'ES'; document.documentElement.lang = 'en'; }
+    toggle.addEventListener('click', () => {
+      const english = document.body.classList.toggle('en');
+      toggle.textContent = english ? 'ES' : 'EN';
+      document.documentElement.lang = english ? 'en' : 'es';
+      localStorage.setItem('portfolio-lang', english ? 'en' : 'es');
+    });
+  </script>
+</body>
+</html>

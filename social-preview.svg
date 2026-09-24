@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Alex Gallart Gimeno · Systems Administrator</title>
+  <desc id="desc">Professional portfolio cover with a dark blue systems and networking motif.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06101e"/>
+      <stop offset="0.55" stop-color="#0b2340"/>
+      <stop offset="1" stop-color="#07353d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="75%" cy="46%" r="55%">
+      <stop offset="0" stop-color="#55e5dd" stop-opacity=".38"/>
+      <stop offset=".5" stop-color="#3ea6ff" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#07111f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3ea6ff"/>
+      <stop offset="1" stop-color="#55e5dd"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g opacity=".18" fill="none" stroke="#9ed5ff" stroke-width="1">
+    <path d="M580 108H1110M540 158H1160M590 208H1080M520 258H1140M560 308H1110M520 358H1160M590 408H1080M540 458H1140M580 508H1110"/>
+    <path d="M660 72V550M740 96V526M820 72V550M900 96V526M980 72V550M1060 96V526"/>
+  </g>
+
+  <g fill="none" stroke="url(#accent)" stroke-width="3" opacity=".74">
+    <path d="M630 326C700 220 764 422 844 292S1002 176 1082 260"/>
+    <path d="M656 430C730 344 774 468 846 386S1000 338 1094 398"/>
+  </g>
+  <g fill="#55e5dd" filter="url(#softGlow)">
+    <circle cx="630" cy="326" r="6"/><circle cx="844" cy="292" r="6"/><circle cx="1082" cy="260" r="6"/>
+    <circle cx="656" cy="430" r="5"/><circle cx="846" cy="386" r="5"/><circle cx="1094" cy="398" r="5"/>
+  </g>
+
+  <g transform="translate(760 116)">
+    <rect x="0" y="0" width="250" height="318" rx="22" fill="#071827" fill-opacity=".85" stroke="#8fcfff" stroke-opacity=".45" stroke-width="2"/>
+    <rect x="25" y="31" width="200" height="68" rx="12" fill="#0f3150" stroke="#55e5dd" stroke-opacity=".45"/>
+    <rect x="25" y="125" width="200" height="68" rx="12" fill="#0f3150" stroke="#3ea6ff" stroke-opacity=".45"/>
+    <rect x="25" y="219" width="200" height="68" rx="12" fill="#0f3150" stroke="#55e5dd" stroke-opacity=".45"/>
+    <g fill="#55e5dd">
+      <circle cx="51" cy="65" r="5"/><circle cx="51" cy="159" r="5"/><circle cx="51" cy="253" r="5"/>
+    </g>
+    <g stroke="#3ea6ff" stroke-linecap="round" stroke-width="5">
+      <path d="M76 61h105M76 78h76"/><path d="M76 155h122M76 172h88"/><path d="M76 249h105M76 266h76"/>
+    </g>
+  </g>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif" fill="#eff7ff">
+    <text x="82" y="118" font-size="22" letter-spacing="5" fill="#55e5dd" font-weight="700">PORTFOLIO PROFESIONAL</text>
+    <text x="78" y="246" font-size="64" letter-spacing="-2" font-weight="800">Alex Gallart</text>
+    <text x="78" y="316" font-size="64" letter-spacing="-2" font-weight="800" fill="url(#accent)">Gimeno</text>
+    <text x="82" y="378" font-size="25" fill="#b8cde2">Systems Administrator · Infrastructure · Automation</text>
+    <rect x="82" y="424" width="290" height="4" rx="2" fill="url(#accent)"/>
+    <text x="82" y="472" font-size="20" fill="#a6bad0">Microsoft 365 · Windows Server · n8n</text>
+  </g>
+
+  <circle cx="1150" cy="86" r="3" fill="#55e5dd" opacity=".8"/>
+  <circle cx="1120" cy="118" r="2" fill="#3ea6ff" opacity=".8"/>
+</svg>
+

@@ -3,17 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Alex Gallart Gimeno, administrador de sistemas en Ibermedia, Valencia. Experiencia en Microsoft 365, Windows Server, redes, copias de seguridad y automatización con n8n.">
+  <meta name="description" content="Alex Gallart Gimeno, administrador de sistemas en Ibermedia, Valencia. Infraestructura IT, Microsoft 365, Windows Server, redes, automatización y soluciones digitales con n8n.">
   <meta name="theme-color" content="#071425">
   <link rel="canonical" href="https://alegim002.github.io/alex-gallart-portfolio/">
   <meta property="og:title" content="Alex Gallart Gimeno | Administrador de sistemas">
   <meta property="og:description" content="Conoce mi experiencia en administración de sistemas, Microsoft 365, redes, seguridad y automatización con n8n.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://alegim002.github.io/alex-gallart-portfolio/">
+  <meta property="og:image" content="https://alegim002.github.io/alex-gallart-portfolio/social-preview.png">
+  <meta property="og:image:secure_url" content="https://alegim002.github.io/alex-gallart-portfolio/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:site_name" content="Portfolio de Alex Gallart Gimeno">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://alegim002.github.io/alex-gallart-portfolio/social-preview.png">
   <title>Alex Gallart Gimeno | Administrador de sistemas</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alex Gallart Gimeno",
+      "jobTitle": "Administrador de sistemas",
+      "url": "https://alegim002.github.io/alex-gallart-portfolio/",
+      "worksFor": {"@type": "Organization", "name": "Ibermedia"},
+      "sameAs": [
+        "https://www.linkedin.com/in/alex-gallart-gimeno-810183253/",
+        "https://github.com/Alegim002"
+      ],
+      "knowsAbout": [
+        "Microsoft 365", "Windows Server", "Active Directory", "Redes",
+        "Virtualización", "Copias de seguridad", "Ciberseguridad", "n8n"
+      ]
+    }
+  </script>
   <style>
     :root {
       --bg: #07111f;
@@ -43,7 +68,7 @@
 
     a { color: inherit; }
     button, a { -webkit-tap-highlight-color: transparent; }
-    a:focus-visible, button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 5px; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible { outline: 3px solid var(--cyan); outline-offset: 5px; }
     [hidden] { display: none !important; }
     .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
@@ -124,13 +149,53 @@
     .job li + li { margin-top: 8px; }
     .job p { margin-top: 18px; }
 
+    .problem-grid, .project-grid, .contact-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .problem-card, .project-card, .contact-option { height: 100%; }
+    .problem-card h3, .project-card h3, .contact-option h3 { font-size: 1.2rem; }
+    .problem-card p + p, .project-card p + p { margin-top: 12px; }
+    .project-label { color: var(--cyan); font-size: .8rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .project-facts { display: grid; gap: 9px; margin: 18px 0 0; }
+    .project-facts div { color: var(--muted); font-size: .95rem; }
+    .project-facts strong { color: var(--text); }
+    .project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .project-links a { color: var(--cyan); font-weight: 750; text-decoration: none; }
+    .project-links a:hover, .project-links a:focus-visible { text-decoration: underline; }
+    .project-placeholder { border-style: dashed; }
+    .contact { text-align: center; padding-bottom: 120px; }
+    .contact-option { text-align: left; }
+    .contact-option .btn { margin-top: 20px; }
+    .contact-compose { margin-top: 28px; text-align: left; padding: clamp(22px, 4vw, 40px); }
+    .contact-compose h3 { font-size: 1.5rem; margin: 0 0 12px; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
+    .field { display: grid; gap: 7px; font-weight: 650; }
+    .field-wide { grid-column: 1 / -1; }
+    .field input, .field textarea, .field select { width: 100%; min-width: 0; color: var(--text); background: var(--surface-solid); border: 1px solid var(--border); border-radius: 10px; padding: 12px; font: inherit; }
+    .field textarea { resize: vertical; min-height: 150px; }
+    .form-note, .privacy p { color: var(--muted); font-size: .9rem; }
+    .consent { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0; font-size: .9rem; }
+    .consent input { width: 20px; height: 20px; flex: 0 0 auto; accent-color: var(--cyan); }
+    .contact-compose button { font: inherit; cursor: pointer; }
+    button:disabled { opacity: .65; cursor: wait; }
+    .form-status { min-height: 1.6em; margin-top: 14px !important; }
+    .form-status[data-state="error"] { color: #ffb4ae; }
+    .form-status[data-state="success"] { color: var(--cyan); }
+    .form-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+    .privacy { text-align: left; margin-top: 28px; border-top: 1px solid var(--border); padding-top: 20px; }
+    .privacy summary { cursor: pointer; font-weight: 700; }
+    .privacy a, .contact-compose a:not(.btn) { color: var(--cyan); }
+    .privacy p { max-width: 85ch; }
+    .privacy-choice { margin: 20px 0 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; text-align: left; }
+    .privacy-choice p { margin: 0 0 12px; color: var(--muted); font-size: .9rem; }
+    .privacy-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .privacy-actions button { font: inherit; color: var(--text); background: var(--surface-solid); cursor: pointer; }
+    .privacy-settings { border: 0; padding: 0; color: var(--muted); background: none; font: inherit; text-decoration: underline; cursor: pointer; }
+
     .chips { display: flex; flex-wrap: wrap; gap: 10px; }
     .chip { padding: 9px 12px; border-radius: 999px; background: rgba(62,166,255,.09); border: 1px solid var(--border); color: #dcebfa; font-size: .9rem; }
     .education { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .education .card { min-height: 172px; }
     .meta { color: var(--cyan); font-size: .86rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
 
-    .contact { text-align: center; padding-bottom: 120px; }
     .contact-box { padding: 50px 28px; background: linear-gradient(145deg, rgba(62,166,255,.16), rgba(85,229,221,.07)); }
     .contact-box p { color: var(--muted); max-width: 650px; margin: 12px auto 26px; }
     footer { padding: 28px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
@@ -154,7 +219,7 @@
       .hero { min-height: auto; padding-top: 50px; }
       .hero-grid { gap: 38px; }
       .visual { width: min(310px, 80%); }
-      .grid, .education { grid-template-columns: 1fr; }
+      .grid, .education, .problem-grid, .project-grid, .contact-options, .form-grid { grid-template-columns: 1fr; }
       .job-top { display: block; }
       .date { display: inline-block; margin-top: 6px; }
       section { padding: 60px 0; }
@@ -176,7 +241,9 @@
       <div class="nav-links">
         <a href="#perfil"><span data-lang="es">Perfil</span><span data-lang="en">Profile</span></a>
         <a href="#experiencia"><span data-lang="es">Experiencia</span><span data-lang="en">Experience</span></a>
+        <a href="#proyectos"><span data-lang="es">Proyectos</span><span data-lang="en">Projects</span></a>
         <a href="#formacion"><span data-lang="es">Formación</span><span data-lang="en">Education</span></a>
+        <a href="#resolver"><span data-lang="es">Soluciones</span><span data-lang="en">Solutions</span></a>
         <a href="#contacto"><span data-lang="es">Contacto</span><span data-lang="en">Contact</span></a>
       </div>
       <button class="lang" id="langToggle" type="button" aria-label="Switch to English" lang="en" hidden>EN</button>
@@ -190,11 +257,11 @@
           <div class="eyebrow"><span data-lang="es">Administrador de sistemas</span><span data-lang="en">Systems Administrator</span></div>
           <h1>Alex Gallart<br><span class="gradient">Gimeno</span></h1>
           <p class="location"><span data-lang="es">Ibermedia · Valencia, España</span><span data-lang="en">Ibermedia · Valencia, Spain</span></p>
-          <p class="lead" data-lang="es">Administro sistemas y doy soporte a entornos empresariales. Trabajo con Microsoft 365, Windows Server, Active Directory y redes, y automatizo procesos con n8n.</p>
-          <p class="lead" data-lang="en">I administer systems and support business IT environments. My work covers Microsoft 365, Windows Server, Active Directory and networking, alongside process automation with n8n.</p>
+          <p class="lead" data-lang="es">Administro sistemas y doy soporte a entornos empresariales. Trabajo con Microsoft 365, Windows Server, Active Directory y redes, y desarrollo automatizaciones y soluciones digitales con n8n.</p>
+          <p class="lead" data-lang="en">I administer systems and support business IT environments. My work covers Microsoft 365, Windows Server, Active Directory and networking, alongside automation and digital solutions with n8n.</p>
           <div class="actions">
             <a class="btn btn-primary" href="#experiencia"><span data-lang="es">Ver experiencia</span><span data-lang="en">View experience</span></a>
-            <a class="btn btn-secondary" href="#contacto"><span data-lang="es">Contactar</span><span data-lang="en">Get in touch</span></a>
+            <a class="btn btn-secondary" href="#resolver"><span data-lang="es">Qué puedo resolver</span><span data-lang="en">What I can solve</span></a>
           </div>
         </div>
         <div class="visual" aria-hidden="true">
@@ -230,6 +297,48 @@
       </div>
     </section>
 
+    <section id="resolver" aria-labelledby="resolver-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><span data-lang="es">Soluciones digitales</span><span data-lang="en">Digital solutions</span></div>
+          <h2 id="resolver-title" data-lang="es">Qué puedo ayudarte a resolver</h2>
+          <h2 data-lang="en">What I can help you solve</h2>
+          <p data-lang="es">Una base técnica de sistemas e infraestructura para convertir procesos concretos en soluciones sencillas de mantener.</p>
+          <p data-lang="en">A systems and infrastructure background for turning concrete processes into solutions that are simple to maintain.</p>
+        </div>
+        <div class="problem-grid">
+          <article class="card problem-card">
+            <div class="icon">01</div>
+            <h3 data-lang="es">Automatizar tareas repetitivas</h3>
+            <h3 data-lang="en">Automate repetitive tasks</h3>
+            <p data-lang="es">Con n8n, APIs e integraciones para conectar herramientas, reducir trabajo manual y dejar trazabilidad de cada flujo.</p>
+            <p data-lang="en">With n8n, APIs and integrations to connect tools, reduce manual work and keep each workflow traceable.</p>
+          </article>
+          <article class="card problem-card">
+            <div class="icon">02</div>
+            <h3 data-lang="es">Crear herramientas internas</h3>
+            <h3 data-lang="en">Build internal tools</h3>
+            <p data-lang="es">Pequeñas aplicaciones, paneles o CRM adaptados a un proceso real del negocio, sin añadir complejidad innecesaria.</p>
+            <p data-lang="en">Small applications, dashboards or CRM tools adapted to a real business process without unnecessary complexity.</p>
+          </article>
+          <article class="card problem-card">
+            <div class="icon">03</div>
+            <h3 data-lang="es">Mejorar una presencia web</h3>
+            <h3 data-lang="en">Improve a web presence</h3>
+            <p data-lang="es">Webs rápidas, claras y mantenibles para pequeños negocios que necesitan explicar bien lo que hacen y cómo contactar.</p>
+            <p data-lang="en">Fast, clear and maintainable websites for small businesses that need to explain what they do and how to get in touch.</p>
+          </article>
+          <article class="card problem-card">
+            <div class="icon">04</div>
+            <h3 data-lang="es">Conectar sistemas e infraestructura</h3>
+            <h3 data-lang="en">Connect systems and infrastructure</h3>
+            <p data-lang="es">Cuando una solución necesita dominios, DNS, Microsoft 365, redes, servidores, copias de seguridad o un despliegue ordenado.</p>
+            <p data-lang="en">When a solution also needs domains, DNS, Microsoft 365, networks, servers, backups or a controlled deployment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="experiencia">
       <div class="wrap experience">
         <div class="section-head">
@@ -249,6 +358,45 @@
             <div class="job-top"><div><h3 data-lang="es">Administrador de sistemas informáticos · Prácticas</h3><h3 data-lang="en">IT Systems Administrator Intern</h3><div class="company">EVha · Entidad Valenciana de Vivienda y Suelo</div></div><div class="date"><span data-lang="es">Mar. — jun. 2022</span><span data-lang="en">Mar — Jun 2022</span></div></div>
             <p data-lang="es">Prácticas formativas en sistemas, redes, soporte técnico y resolución de incidencias.</p>
             <p data-lang="en">Internship focused on systems, networking, technical support and incident resolution.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" aria-labelledby="proyectos-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><span data-lang="es">Trabajo propio</span><span data-lang="en">Independent work</span></div>
+          <h2 id="proyectos-title" data-lang="es">Proyectos reales y en evolución</h2>
+          <h2 data-lang="en">Real projects, documented over time</h2>
+          <p data-lang="es">Cada ficha explica el problema, la solución, las tecnologías y el alcance. Solo añado proyectos que pueda mostrar y documentar.</p>
+          <p data-lang="en">Each entry explains the problem, solution, technologies and scope. I only add projects I can show and document.</p>
+        </div>
+        <div class="project-grid">
+          <article class="card project-card">
+            <div class="project-label"><span data-lang="es">Proyecto propio · Publicado</span><span data-lang="en">Personal project · Published</span></div>
+            <h3 data-lang="es">Portfolio profesional personal</h3>
+            <h3 data-lang="en">Personal professional portfolio</h3>
+            <div class="project-facts">
+              <div data-lang="es"><strong>Problema:</strong> Necesitaba un espacio público para presentar mi perfil de administrador de sistemas y mi trabajo tecnológico.</div>
+              <div data-lang="en"><strong>Problem:</strong> I needed a public space to present my systems administrator profile and technical work.</div>
+              <div data-lang="es"><strong>Solución:</strong> Sitio estático bilingüe y responsive con experiencia, formación, tecnologías y contacto.</div>
+              <div data-lang="en"><strong>Solution:</strong> A bilingual, responsive static site with experience, education, technologies and contact details.</div>
+              <div><strong>Stack:</strong> HTML · CSS · JavaScript · GitHub Pages</div>
+              <div data-lang="es"><strong>Resultado:</strong> Perfil técnico público y accesible desde LinkedIn.</div>
+              <div data-lang="en"><strong>Result:</strong> A public technical profile accessible from LinkedIn.</div>
+            </div>
+            <div class="project-links">
+              <a href="https://alegim002.github.io/alex-gallart-portfolio/" target="_blank" rel="noopener noreferrer"><span data-lang="es">Ver demo</span><span data-lang="en">View demo</span> ↗</a>
+              <a href="https://github.com/Alegim002/alex-gallart-portfolio" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+          <article class="card project-card project-placeholder">
+            <div class="project-label"><span data-lang="es">Próximamente</span><span data-lang="en">Coming next</span></div>
+            <h3 data-lang="es">Más proyectos documentados</h3>
+            <h3 data-lang="en">More documented projects</h3>
+            <p data-lang="es">Añadiré aquí automatizaciones, integraciones o herramientas propias cuando exista una demo o documentación que permita explicar el problema y la solución con claridad.</p>
+            <p data-lang="en">Automation, integrations or personal tools will be added here once a demo or documentation is available to explain the problem and solution clearly.</p>
           </article>
         </div>
       </div>
@@ -276,11 +424,77 @@
     </section>
 
     <section class="contact" id="contacto">
-      <div class="wrap"><div class="card contact-box"><div class="eyebrow"><span data-lang="es">Contacto profesional</span><span data-lang="en">Professional contact</span></div><h2 data-lang="es">Hablemos de tu equipo y sus sistemas</h2><h2 data-lang="en">Let's talk about your team and its systems</h2><p data-lang="es">Si buscas un perfil de administración de sistemas o quieres conocer mejor mi experiencia, puedes contactar conmigo a través de LinkedIn.</p><p data-lang="en">If you are looking for a systems administrator or would like to know more about my experience, get in touch through LinkedIn.</p><div class="actions" style="justify-content:center"><a class="btn btn-primary" href="https://www.linkedin.com/in/alex-gallart-gimeno-810183253/"><span data-lang="es">Contactar por LinkedIn</span><span data-lang="en">Contact on LinkedIn</span></a><a class="btn btn-secondary" href="https://github.com/Alegim002"><span data-lang="es">Ver perfil de GitHub</span><span data-lang="en">View GitHub profile</span></a></div></div></div>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><span data-lang="es">Contacto profesional</span><span data-lang="en">Professional contact</span></div>
+          <h2 data-lang="es">Hablemos de sistemas o de un proyecto concreto</h2>
+          <h2 data-lang="en">Let's talk about systems or a specific project</h2>
+          <p data-lang="es">Cuéntame qué necesitas, el contexto y cómo puedo ayudarte. Puedes escribirme por correo o por LinkedIn.</p>
+          <p data-lang="en">Tell me what you need, the context and how I can help. You can reach me by email or LinkedIn.</p>
+        </div>
+        <div class="contact-options">
+          <article class="card contact-option">
+            <div class="project-label"><span data-lang="es">Oportunidades profesionales</span><span data-lang="en">Professional opportunities</span></div>
+            <h3 data-lang="es">¿Buscas un administrador de sistemas?</h3>
+            <h3 data-lang="en">Looking for a systems administrator?</h3>
+            <p data-lang="es">Hablemos de infraestructura, soporte IT, Microsoft 365, Windows Server y mejora continua en entornos empresariales.</p>
+            <p data-lang="en">Let's discuss infrastructure, IT support, Microsoft 365, Windows Server and continuous improvement in business environments.</p>
+            <a class="btn btn-primary" href="mailto:alegim02@gmail.com?subject=Oportunidad%20profesional%20desde%20el%20portfolio"><span data-lang="es">Escribirme por correo</span><span data-lang="en">Email me</span></a>
+          </article>
+          <article class="card contact-option">
+            <div class="project-label"><span data-lang="es">¿Tienes un proyecto?</span><span data-lang="en">Have a project?</span></div>
+            <h3 data-lang="es">Convirtamos una necesidad en una solución</h3>
+            <h3 data-lang="en">Let's turn a need into a solution</h3>
+            <p data-lang="es">Si necesitas una automatización, una integración, una web, un CRM sencillo o apoyo técnico para un negocio, cuéntame el contexto.</p>
+            <p data-lang="en">If you need an automation, integration, website, simple CRM or technical support for a business, tell me about the context.</p>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/alex-gallart-gimeno-810183253/"><span data-lang="es">Comentar un proyecto</span><span data-lang="en">Discuss a project</span></a>
+          </article>
+        </div>
+        <div class="card contact-compose" id="contact-direct">
+          <h3><span data-lang="es">Contacto directo</span><span data-lang="en">Get in touch</span></h3>
+          <p><a href="mailto:alegim02@gmail.com">alegim02@gmail.com</a></p>
+          <p class="form-note"><span data-lang="es">El enlace de correo abre tu aplicación de email. También puedes copiar la dirección o </span><span data-lang="en">The email link opens your email app. You can also copy the address or </span><a href="https://www.linkedin.com/in/alex-gallart-gimeno-810183253/"><span data-lang="es">contactar por LinkedIn</span><span data-lang="en">contact me on LinkedIn</span></a>.</p>
+        </div>
+        <div class="card contact-compose" id="contact-form-panel" hidden>
+          <h3><span data-lang="es">Envíame un mensaje</span><span data-lang="en">Send me a message</span></h3>
+          <p class="form-note"><span data-lang="es">Los campos marcados con * son obligatorios. No incluyas contraseñas ni información confidencial.</span><span data-lang="en">Fields marked * are required. Do not include passwords or confidential information.</span></p>
+          <form id="contact-form" data-endpoint="" method="post" action="#contacto">
+            <fieldset id="contact-fields" disabled style="border:0;padding:0;margin:0;min-width:0">
+              <div class="form-grid">
+                <label class="field" for="contact-name"><span><span data-lang="es">Nombre</span><span data-lang="en">Name</span> *</span><input id="contact-name" name="name" autocomplete="name" maxlength="100" required></label>
+                <label class="field" for="contact-email"><span>Email *</span><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required></label>
+                <label class="field" for="contact-company"><span><span data-lang="es">Empresa (opcional)</span><span data-lang="en">Company (optional)</span></span><input id="contact-company" name="company" autocomplete="organization" maxlength="150"></label>
+                <label class="field" for="contact-topic"><span><span data-lang="es">Motivo</span><span data-lang="en">Topic</span> *</span><select id="contact-topic" name="topic" required><option value="" data-es="Selecciona una opción" data-en="Choose a topic">Selecciona una opción</option><option value="opportunity" data-es="Oportunidad profesional" data-en="Professional opportunity">Oportunidad profesional</option><option value="project" data-es="Proyecto tecnológico" data-en="Technology project">Proyecto tecnológico</option><option value="other" data-es="Otra consulta" data-en="Other enquiry">Otra consulta</option></select></label>
+                <label class="field field-wide" for="contact-message"><span><span data-lang="es">Mensaje</span><span data-lang="en">Message</span> *</span><textarea id="contact-message" name="message" rows="6" minlength="10" maxlength="5000" required></textarea></label>
+              </div>
+              <div class="form-trap" aria-hidden="true"><label for="contact-website">Leave this blank</label><input id="contact-website" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+              <label class="consent" for="contact-privacy"><input id="contact-privacy" name="privacy" type="checkbox" value="accepted" required><span><span data-lang="es">He leído la <a href="#privacidad">información de privacidad</a> y acepto que mis datos se utilicen para responder a esta consulta. *</span><span data-lang="en">I have read the <a href="#privacidad">privacy information</a> and agree to my details being used to respond to this enquiry. *</span></span></label>
+              <button class="btn btn-primary" type="submit" id="contact-submit"><span data-lang="es">Enviar mensaje</span><span data-lang="en">Send message</span></button>
+            </fieldset>
+            <p class="form-status" id="contact-status" role="status" aria-live="polite" tabindex="-1"></p>
+          </form>
+        </div>
+        <details class="privacy" id="privacidad">
+          <summary><span data-lang="es">Privacidad y contacto</span><span data-lang="en">Privacy and contact</span></summary>
+          <p data-lang="es">Alex Gallart Gimeno es el responsable de este portfolio. El nombre, correo y mensaje que facilites se utilizarán para atender tu consulta. Puedes solicitar información o la eliminación de tus mensajes escribiendo a <a href="mailto:alegim02@gmail.com">alegim02@gmail.com</a>.</p>
+          <p data-lang="en">Alex Gallart Gimeno is responsible for this portfolio. The name, email and message you provide will be used to respond to your enquiry. For information or to request deletion of your messages, email <a href="mailto:alegim02@gmail.com">alegim02@gmail.com</a>.</p>
+          <p id="form-provider-notice" hidden><span data-lang="es">El formulario utiliza Formspree para recibir y almacenar mensajes y enviarlos al correo de Alex. </span><span data-lang="en">The form uses Formspree to receive and store messages and deliver them to Alex's email. </span><a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer"><span data-lang="es">Privacidad de Formspree</span><span data-lang="en">Formspree privacy policy</span></a>.</p>
+          <p data-lang="es">Con tu permiso, GoatCounter registra estadísticas de uso para Alex en un panel privado: páginas visitadas, procedencia y navegador. No se envía a la analítica el contenido de tus mensajes. Puedes cambiar tu elección con el botón «Preferencias de privacidad». <a href="https://www.goatcounter.com/privacy" target="_blank" rel="noopener noreferrer">Privacidad de GoatCounter</a>.</p>
+          <p data-lang="en">With your permission, GoatCounter records usage statistics for Alex in a private dashboard: pages visited, referral source and browser. The content of your messages is not sent to analytics. You can change your choice using “Privacy preferences”. <a href="https://www.goatcounter.com/privacy" target="_blank" rel="noopener noreferrer">GoatCounter privacy policy</a>.</p>
+          <p data-lang="es">Este sitio guarda localmente tu preferencia de idioma y, si eliges una opción, tu preferencia de estadísticas. GitHub Pages aloja la web; los enlaces a LinkedIn y al correo abren servicios con sus propias políticas.</p>
+          <p data-lang="en">This site stores your language preference locally and, if you choose an option, your analytics preference. GitHub Pages hosts the site; LinkedIn and email links open services with their own policies.</p>
+        </details>
+        <div class="privacy-choice" id="analytics-choice" hidden role="region" aria-labelledby="analytics-choice-title">
+          <strong id="analytics-choice-title"><span data-lang="es">Tu privacidad</span><span data-lang="en">Your privacy</span></strong>
+          <p><span data-lang="es">¿Permites estadísticas de uso para ayudarme a mejorar este portfolio? Puedes seguir navegando y contactar sin aceptarlas. </span><span data-lang="en">Allow usage statistics to help me improve this portfolio? You can browse and get in touch without accepting. </span><a href="#privacidad"><span data-lang="es">Más información</span><span data-lang="en">Learn more</span></a>.</p>
+          <p id="analytics-signal" hidden><span data-lang="es">Tu navegador solicita no ser rastreado; las estadísticas están desactivadas.</span><span data-lang="en">Your browser requests not to be tracked; analytics are disabled.</span></p>
+          <div class="privacy-actions"><button class="btn" type="button" id="analytics-reject"><span data-lang="es">Rechazar</span><span data-lang="en">Decline</span></button><button class="btn" type="button" id="analytics-accept"><span data-lang="es">Permitir estadísticas</span><span data-lang="en">Allow analytics</span></button></div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer><div class="wrap"><span>© 2026 Alex Gallart Gimeno</span><span><span data-lang="es">Valencia, España</span><span data-lang="en">Valencia, Spain</span></span></div></footer>
+  <footer><div class="wrap"><span>© 2026 Alex Gallart Gimeno</span><button class="privacy-settings" type="button" id="analytics-preferences" hidden><span data-lang="es">Preferencias de privacidad</span><span data-lang="en">Privacy preferences</span></button><span><span data-lang="es">Valencia, España</span><span data-lang="en">Valencia, Spain</span></span></div></footer>
   <script>
     const toggle = document.getElementById('langToggle');
     const navigation = document.querySelector('nav');
@@ -299,6 +513,8 @@
       toggle.textContent = english ? 'ES' : 'EN';
       toggle.lang = english ? 'es' : 'en';
       toggle.setAttribute('aria-label', english ? 'Cambiar a español' : 'Switch to English');
+      document.querySelectorAll('option[data-es]').forEach(option => { option.textContent = option.dataset[language]; });
+      document.dispatchEvent(new Event('portfolio-language-change'));
     }
     let saved = 'es';
     try { saved = localStorage.getItem('portfolio-lang') === 'en' ? 'en' : 'es'; } catch { /* Storage may be disabled. */ }
@@ -310,6 +526,7 @@
       try { localStorage.setItem('portfolio-lang', language); } catch { /* The toggle still works without storage. */ }
     });
   </script>
+  <script src="contact.js" defer></script>
+  <script src="analytics.js" defer></script>
 </body>
 </html>
-

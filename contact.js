@@ -15,7 +15,7 @@
       success: 'Mensaje recibido por el servicio de contacto. Gracias por escribirme.',
       error: 'No se ha podido confirmar el envío. Tu texto se conserva; puedes copiarlo y escribirme por correo o LinkedIn.',
       rate: 'Se han realizado demasiados intentos. Espera un momento o utiliza el correo de contacto.',
-      invalid: 'Revisa los campos obligatorios y acepta la información de privacidad.',
+      invalid: 'Revisa los campos obligatorios y marca la casilla de consentimiento.',
       spam: 'No se ha enviado el mensaje. Utiliza el correo de contacto si el problema continúa.',
       send: 'Enviar mensaje'
     },
@@ -24,7 +24,7 @@
       success: 'The contact service has received your message. Thank you for getting in touch.',
       error: 'Delivery could not be confirmed. Your text is preserved; you can copy it and contact me by email or LinkedIn.',
       rate: 'Too many attempts. Please wait a moment or use the contact email.',
-      invalid: 'Check the required fields and accept the privacy information.',
+      invalid: 'Check the required fields and select the consent checkbox.',
       spam: 'The message was not sent. Please use the contact email if the problem continues.',
       send: 'Send message'
     }
@@ -52,7 +52,7 @@
       return;
     }
     const payload = new FormData(form);
-    payload.set('_subject', 'Contacto desde el portfolio de Alex Gallart');
+    payload.set('_subject', 'Contacto desde el portafolio de Alex Gallart');
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 20000);
     busy = true;

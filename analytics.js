@@ -30,7 +30,7 @@
       no_onload: true, no_events: true,
       endpoint: 'https://alexgallart.goatcounter.com/count',
       path: () => allowed() ? '/alex-gallart-portfolio/' : null,
-      title: 'Portfolio profesional | Alex Gallart Gimeno',
+      title: 'Portafolio profesional | Alex Gallart Gimeno',
       referrer
     };
     script = document.createElement('script');

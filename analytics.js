@@ -7,7 +7,9 @@
   const reject = document.getElementById('analytics-reject');
   const privacySignal = navigator.globalPrivacyControl === true || navigator.doNotTrack === '1';
   const production = location.protocol === 'https:' && location.hostname === 'alegim002.github.io' &&
-    /^\/alex-gallart-portfolio\/(?:index\.html)?$/.test(location.pathname);
+    /^\/alex-gallart-portfolio\/(?:servicios\/)?(?:index\.html)?$/.test(location.pathname);
+  const services = location.pathname.startsWith('/alex-gallart-portfolio/servicios/');
+  const pagePath = services ? '/alex-gallart-portfolio/servicios/' : '/alex-gallart-portfolio/';
   let choice = null;
   let script = null;
   let counted = false;
@@ -29,8 +31,8 @@
     window.goatcounter = {
       no_onload: true, no_events: true,
       endpoint: 'https://alexgallart.goatcounter.com/count',
-      path: () => allowed() ? '/alex-gallart-portfolio/' : null,
-      title: 'Portafolio profesional | Alex Gallart Gimeno',
+      path: () => allowed() ? pagePath : null,
+      title: services ? 'Servicios digitales | Alex Gallart' : 'Portafolio profesional | Alex Gallart Gimeno',
       referrer
     };
     script = document.createElement('script');

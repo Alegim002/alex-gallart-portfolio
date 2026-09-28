@@ -52,7 +52,8 @@
       return;
     }
     const payload = new FormData(form);
-    payload.set('_subject', 'Contacto desde el portafolio de Alex Gallart');
+    payload.set('_subject', form.dataset.subject || 'Contacto desde el portafolio de Alex Gallart');
+    payload.set('source', form.dataset.source || 'portfolio');
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 20000);
     busy = true;

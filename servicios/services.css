@@ -1,0 +1,64 @@
+:root {
+  --service-accent: #d4f27d;
+}
+:root[data-theme="light"] { --service-accent: #47620b; }
+.service-hero { padding: 88px 0 76px; }
+.service-hero-grid { display: grid; grid-template-columns: 1.25fr .85fr; gap: 52px; align-items: center; }
+.service-hero h1 { font-size: clamp(2.65rem, 5.3vw, 4.3rem); letter-spacing: -.055em; line-height: 1.04; }
+.service-hero .lead { max-width: 650px; }
+.hero-note { color: var(--muted); font-size: .88rem; margin-top: 22px; }
+.workflow-card { border: 1px solid var(--border); background: var(--card); border-radius: 26px; padding: 26px; box-shadow: var(--shadow); }
+.workflow-header { display: flex; align-items: center; gap: 10px; padding-bottom: 22px; font-size: .93rem; font-weight: 750; }
+.status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--service-accent); box-shadow: 0 0 0 5px var(--accent-soft); flex-shrink: 0; }
+.workflow-list { list-style: none; margin: 0; padding: 0; }
+.workflow-list li { display: flex; align-items: center; gap: 15px; padding: 18px 0; border-top: 1px solid var(--border); }
+.workflow-list li strong { display: block; line-height: 1.4; font-size: 1rem; }
+.workflow-list p { color: var(--muted); margin: 5px 0 0; font-size: .88rem; }
+.workflow-number { color: var(--service-accent); border: 1px solid var(--border); background: var(--accent-soft); border-radius: 12px; width: 44px; height: 44px; display: grid; place-items: center; font-weight: 800; flex-shrink: 0; }
+.workflow-note { border-top: 1px solid var(--border); padding-top: 18px; color: var(--muted); font-size: .8rem; margin: 6px 0 0; }
+.offer-grid { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 18px; }
+.offer-card { display: flex; flex-direction: column; padding: 28px; }
+.offer-featured { background: var(--core); }
+.offer-card h3 { font-size: 1.6rem; letter-spacing: -.035em; line-height: 1.15; margin: 16px 0; }
+.offer-card ul { padding-left: 20px; color: var(--muted); font-size: .94rem; margin: 22px 0 28px; }
+.offer-card li + li { margin-top: 10px; }
+.offer-link { color: var(--cyan); font-size: .94rem; font-weight: 750; margin-top: auto; min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; }
+.offer-link:hover { text-decoration: underline; }
+.process-section, .faq-section { background: var(--accent-soft); border-block: 1px solid var(--border); }
+.process-grid { gap: 32px; }
+.step-number { font-size: 2.8rem; font-weight: 850; letter-spacing: -.07em; color: var(--service-accent); }
+.process-grid h3 { font-size: 1.2rem; margin: 10px 0; }
+.process-grid p { color: var(--muted); margin: 0; }
+.example-grid h3 { font-size: 1.2rem; margin-top: 0; }
+.about-note { margin-top: 28px; padding: 26px 0 0; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.about-note p { color: var(--muted); margin: 6px 0 0; max-width: 650px; }
+.about-note .btn { flex-shrink: 0; }
+.faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.faq-grid details { box-shadow: none; }
+.faq-grid summary { font-weight: 750; cursor: pointer; min-height: 28px; }
+.faq-grid p { margin-top: 18px; }
+.faq-grid a { color: var(--cyan); }
+.service-contact { text-align: left; }
+.service-contact .section-head { max-width: 750px; }
+.service-direct { margin-top: 22px; color: var(--muted); font-size: .95rem; overflow-wrap: anywhere; }
+.service-direct a { color: var(--cyan); }
+.mobile-cta { display: none; }
+@media (max-width: 1000px) { .service-hero-grid { gap: 30px; } .offer-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .service-hero-grid { grid-template-columns: 1fr; } .workflow-card { max-width: 650px; width: 100%; } }
+@media (max-width: 680px) {
+  html { scroll-padding-top: 155px; }
+  .service-hero { padding: 48px 0 56px; }
+  .service-hero h1 { font-size: clamp(2.4rem, 8.8vw, 3.5rem); }
+  .service-hero .actions { flex-direction: column; align-items: stretch; }
+  .workflow-card { padding: 22px; }
+  .process-grid, .faq-grid { grid-template-columns: 1fr; }
+  .about-note { display: block; }
+  .about-note .btn { margin-top: 20px; }
+  .nav-links { display: flex; flex-wrap: wrap; gap: 0 12px; justify-content: center; }
+  .nav-links a { font-size: .8rem; }
+  .brand { font-size: .92rem; }
+  .theme-toggle { padding-inline: 10px; gap: 6px; }
+  .service-contact { padding-bottom: 60px; }
+  footer { padding-bottom: 100px; }
+  .mobile-cta { display: flex; position: fixed; bottom: max(12px, env(safe-area-inset-bottom)); left: 14px; right: 14px; z-index: 25; box-shadow: var(--shadow); }
+}

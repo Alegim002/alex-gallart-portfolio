@@ -4,7 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Alex Gallart Gimeno, administrador de sistemas en Ibermedia, Valencia. Infraestructura informática, Microsoft 365, Windows Server, redes, automatización y soluciones digitales con n8n.">
-  <meta name="theme-color" content="#071425">
+  <meta name="theme-color" content="#07111f">
+  <script>
+    (() => {
+      let preference;
+      try { preference = localStorage.getItem('portfolio-theme'); } catch { /* Storage may be disabled. */ }
+      const theme = preference === 'light' || preference === 'dark' ? preference :
+        (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#07111f' : '#f4f7fb';
+    })();
+  </script>
   <link rel="canonical" href="https://alegim002.github.io/alex-gallart-portfolio/">
   <meta property="og:title" content="Alex Gallart Gimeno | Administrador de sistemas">
   <meta property="og:description" content="Conoce mi experiencia en administración de sistemas, Microsoft 365, redes, seguridad y automatización con n8n.">
@@ -41,6 +51,7 @@
   </script>
   <style>
     :root {
+      color-scheme: dark;
       --bg: #07111f;
       --surface: rgba(13, 31, 53, .78);
       --surface-solid: #0d1f35;
@@ -50,7 +61,43 @@
       --blue: #3ea6ff;
       --cyan: #55e5dd;
       --shadow: 0 22px 70px rgba(0, 0, 0, .26);
+      --header: rgba(7, 17, 31, .76);
+      --glow-blue: rgba(62, 166, 255, .18);
+      --glow-cyan: rgba(85, 229, 221, .1);
+      --card: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      --button-subtle: rgba(255,255,255,.035);
+      --primary: linear-gradient(120deg, #168fff, #38c6cf);
+      --primary-text: #03101e;
+      --accent-soft: rgba(62,166,255,.13);
+      --orbit-border: rgba(85,229,221,.23);
+      --core: linear-gradient(145deg, rgba(62,166,255,.26), rgba(85,229,221,.08));
+      --chip-text: #dcebfa;
+      --error: #ffb4ae;
       --radius: 22px;
+    }
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f4f7fb;
+      --surface: rgba(255, 255, 255, .9);
+      --surface-solid: #fff;
+      --border: rgba(31, 77, 121, .2);
+      --text: #14283f;
+      --muted: #40576f;
+      --blue: #0963b9;
+      --cyan: #08786f;
+      --shadow: 0 16px 50px rgba(27, 60, 96, .09);
+      --header: rgba(244, 247, 251, .92);
+      --glow-blue: rgba(62, 166, 255, .12);
+      --glow-cyan: rgba(85, 229, 221, .07);
+      --card: linear-gradient(145deg, rgba(255,255,255,.96), rgba(255,255,255,.82));
+      --button-subtle: #e7f0f8;
+      --primary: linear-gradient(120deg, #0966be, #087b83);
+      --primary-text: #fff;
+      --accent-soft: rgba(9,99,185,.09);
+      --orbit-border: rgba(8,120,111,.3);
+      --core: linear-gradient(145deg, #d9ebff, #e0f5f1);
+      --chip-text: #24435e;
+      --error: #a62d25;
     }
 
     * { box-sizing: border-box; }
@@ -59,8 +106,8 @@
       margin: 0;
       color: var(--text);
       background:
-        radial-gradient(circle at 82% 4%, rgba(62, 166, 255, .18), transparent 30rem),
-        radial-gradient(circle at 16% 28%, rgba(85, 229, 221, .1), transparent 24rem),
+        radial-gradient(circle at 82% 4%, var(--glow-blue), transparent 30rem),
+        radial-gradient(circle at 16% 28%, var(--glow-cyan), transparent 24rem),
         var(--bg);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
@@ -81,7 +128,7 @@
     header {
       position: sticky; top: 0; z-index: 20;
       backdrop-filter: blur(16px);
-      background: rgba(7, 17, 31, .76);
+      background: var(--header);
       border-bottom: 1px solid var(--border);
     }
     nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 8px 0; }
@@ -90,10 +137,13 @@
     .nav-links { display: flex; align-items: center; gap: 22px; }
     .nav-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); text-decoration: none; font-size: .93rem; font-weight: 650; }
     .nav-links a:hover, .nav-links a:focus-visible { color: var(--text); }
-    .lang {
-      border: 1px solid var(--border); background: rgba(255,255,255,.03); color: var(--text);
-      min-width: 44px; min-height: 44px; border-radius: 999px; padding: 8px 12px; cursor: pointer; font-weight: 750;
+    .nav-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .lang, .theme-toggle {
+      border: 1px solid var(--border); background: var(--button-subtle); color: var(--text);
+      min-width: 44px; min-height: 44px; border-radius: 999px; padding: 8px 12px; cursor: pointer; font: inherit; font-size: .85rem; font-weight: 750;
     }
+    .theme-toggle { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+    .theme-toggle svg { width: 18px; height: 18px; flex-shrink: 0; }
 
     main { overflow: hidden; }
     .hero { min-height: 670px; display: grid; align-items: center; padding: 92px 0 74px; }
@@ -105,12 +155,12 @@
     .location { color: var(--cyan); font-weight: 650; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 19px; border-radius: 13px; text-decoration: none; font-weight: 800; border: 1px solid var(--border); }
-    .btn-primary { background: linear-gradient(120deg, #168fff, #38c6cf); color: #03101e; border: 0; }
-    .btn-secondary { background: rgba(255,255,255,.035); }
+    .btn-primary { background: var(--primary); color: var(--primary-text); border: 0; }
+    .btn-secondary { background: var(--button-subtle); }
     .btn:hover { transform: translateY(-2px); }
 
     .visual { position: relative; aspect-ratio: 1; display: grid; place-items: center; }
-    .orbit { position: absolute; border: 1px solid rgba(85,229,221,.23); border-radius: 50%; animation: spin 28s linear infinite; }
+    .orbit { position: absolute; border: 1px solid var(--orbit-border); border-radius: 50%; animation: spin 28s linear infinite; }
     .orbit.one { inset: 6%; }
     .orbit.two { inset: 18%; animation-direction: reverse; animation-duration: 20s; }
     .orbit::before, .orbit::after { content: ""; position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 25px var(--cyan); }
@@ -118,10 +168,13 @@
     .orbit::after { right: 4%; bottom: 30%; background: var(--blue); }
     .core {
       width: 52%; aspect-ratio: 1; border-radius: 28px; display: grid; place-items: center;
-      background: linear-gradient(145deg, rgba(62,166,255,.26), rgba(85,229,221,.08));
-      border: 1px solid rgba(125,200,255,.28); box-shadow: var(--shadow), inset 0 0 50px rgba(62,166,255,.12);
+      background: var(--core);
+      border: 1px solid var(--border); box-shadow: var(--shadow), inset 0 0 50px var(--accent-soft);
     }
     .core svg { width: 52%; height: 52%; }
+    .core svg rect { stroke: var(--cyan); }
+    .core svg path { stroke: var(--blue); }
+    .core svg circle { fill: var(--cyan); }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     section { padding: 88px 0; scroll-margin-top: 12px; }
@@ -131,12 +184,12 @@
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .card {
       padding: 24px; border-radius: var(--radius); border: 1px solid var(--border);
-      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      background: var(--card);
       box-shadow: var(--shadow);
     }
     .card h3 { margin: 12px 0 8px; font-size: 1.1rem; }
     .card p { margin: 0; color: var(--muted); font-size: .96rem; }
-    .icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: rgba(62,166,255,.13); color: var(--cyan); font-weight: 900; }
+    .icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: var(--accent-soft); color: var(--cyan); font-weight: 900; }
 
     .experience { display: grid; grid-template-columns: .7fr 1.3fr; gap: 40px; }
     .timeline { display: grid; gap: 18px; }
@@ -177,7 +230,7 @@
     .contact-compose button { font: inherit; cursor: pointer; }
     button:disabled { opacity: .65; cursor: wait; }
     .form-status { min-height: 1.6em; margin-top: 14px !important; }
-    .form-status[data-state="error"] { color: #ffb4ae; }
+    .form-status[data-state="error"] { color: var(--error); }
     .form-status[data-state="success"] { color: var(--cyan); }
     .form-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
     .privacy { text-align: left; margin-top: 28px; border-top: 1px solid var(--border); padding-top: 20px; }
@@ -191,12 +244,12 @@
     .privacy-settings { border: 0; padding: 0; color: var(--muted); background: none; font: inherit; text-decoration: underline; cursor: pointer; }
 
     .chips { display: flex; flex-wrap: wrap; gap: 10px; }
-    .chip { padding: 9px 12px; border-radius: 999px; background: rgba(62,166,255,.09); border: 1px solid var(--border); color: #dcebfa; font-size: .9rem; }
+    .chip { padding: 9px 12px; border-radius: 999px; background: var(--accent-soft); border: 1px solid var(--border); color: var(--chip-text); font-size: .9rem; }
     .education { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .education .card { min-height: 172px; }
     .meta { color: var(--cyan); font-size: .86rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
 
-    .contact-box { padding: 50px 28px; background: linear-gradient(145deg, rgba(62,166,255,.16), rgba(85,229,221,.07)); }
+    .contact-box { padding: 50px 28px; background: var(--core); }
     .contact-box p { color: var(--muted); max-width: 650px; margin: 12px auto 26px; }
     footer { padding: 28px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
     footer .wrap { display: flex; justify-content: space-between; gap: 20px; }
@@ -205,10 +258,20 @@
     body.en [data-lang="es"] { display: none; }
     body.en [data-lang="en"] { display: revert; }
 
+    @media (max-width: 1000px) {
+      html { scroll-padding-top: 150px; }
+      nav { flex-wrap: wrap; gap: 0 12px; }
+      .nav-links { order: 3; width: 100%; flex-wrap: wrap; justify-content: center; }
+    }
     @media (max-width: 900px) {
       .hero-grid, .experience { grid-template-columns: 1fr; }
       .visual { width: min(520px, 100%); margin: 0 auto; }
       .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 420px) {
+      html { scroll-padding-top: 200px; }
+      .nav-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 4px; }
+      .nav-links a { justify-content: center; }
     }
     @media (max-width: 680px) {
       .wrap { width: min(100% - 28px, 1120px); }
@@ -246,7 +309,16 @@
         <a href="#resolver"><span data-lang="es">Soluciones</span><span data-lang="en">Solutions</span></a>
         <a href="#contacto"><span data-lang="es">Contacto</span><span data-lang="en">Contact</span></a>
       </div>
-      <button class="lang" id="langToggle" type="button" aria-label="Switch to English" lang="en" hidden>EN</button>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activar modo noche" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <g id="themeSun" hidden><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"></path></g>
+            <path id="themeMoon" d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z"></path>
+          </svg>
+          <span id="themeLabel">Modo noche</span>
+        </button>
+        <button class="lang" id="langToggle" type="button" aria-label="Switch to English" lang="en" hidden>EN</button>
+      </div>
     </nav>
   </header>
 
@@ -481,8 +553,8 @@
           <p id="form-provider-notice" hidden><span data-lang="es">El formulario utiliza Formspree para recibir y almacenar mensajes y enviarlos al correo de Alex. </span><span data-lang="en">The form uses Formspree to receive and store messages and deliver them to Alex's email. </span><a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer"><span data-lang="es">Privacidad de Formspree</span><span data-lang="en">Formspree privacy policy</span></a>.</p>
           <p data-lang="es">Con tu permiso, GoatCounter registra estadísticas de uso para Alex en un panel privado: páginas visitadas, procedencia y navegador. No se envía a la analítica el contenido de tus mensajes. Puedes cambiar tu elección con el botón «Preferencias de privacidad». <a href="https://www.goatcounter.com/privacy" target="_blank" rel="noopener noreferrer">Privacidad de GoatCounter</a>.</p>
           <p data-lang="en">With your permission, GoatCounter records usage statistics for Alex in a private dashboard: pages visited, referral source and browser. The content of your messages is not sent to analytics. You can change your choice using “Privacy preferences”. <a href="https://www.goatcounter.com/privacy" target="_blank" rel="noopener noreferrer">GoatCounter privacy policy</a>.</p>
-          <p data-lang="es">Este sitio guarda localmente tu preferencia de idioma y, si eliges una opción, tu preferencia de estadísticas. GitHub Pages aloja la web; los enlaces a LinkedIn y al correo abren servicios con sus propias políticas.</p>
-          <p data-lang="en">This site stores your language preference locally and, if you choose an option, your analytics preference. GitHub Pages hosts the site; LinkedIn and email links open services with their own policies.</p>
+          <p data-lang="es">Este sitio guarda localmente tu preferencia de idioma, tu elección de modo día o noche y, si eliges una opción, tu preferencia de estadísticas. GitHub Pages aloja la web; los enlaces a LinkedIn y al correo abren servicios con sus propias políticas.</p>
+          <p data-lang="en">This site stores your language preference, your choice of light or dark mode and, if you choose an option, your analytics preference locally. GitHub Pages hosts the site; LinkedIn and email links open services with their own policies.</p>
         </details>
         <div class="privacy-choice" id="analytics-choice" hidden role="region" aria-labelledby="analytics-choice-title">
           <strong id="analytics-choice-title"><span data-lang="es">Tu privacidad</span><span data-lang="en">Your privacy</span></strong>
@@ -526,6 +598,7 @@
       try { localStorage.setItem('portfolio-lang', language); } catch { /* The toggle still works without storage. */ }
     });
   </script>
+  <script src="theme.js" defer></script>
   <script src="contact.js" defer></script>
   <script src="analytics.js" defer></script>
 </body>

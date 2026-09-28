@@ -32,7 +32,7 @@
 
   function applyTheme(theme) {
     root.dataset.theme = theme;
-    if (toolbarColor) toolbarColor.content = theme === 'dark' ? '#20241f' : '#f3f0e8';
+    if (toolbarColor) toolbarColor.content = theme === 'dark' ? '#07111f' : '#f4f7fb';
     renderButton();
   }
 

@@ -26,8 +26,8 @@
       (dark ? 'Activar modo día' : 'Activar modo noche');
     button.setAttribute('aria-label', action);
     button.setAttribute('title', action);
-    sun.hidden = !dark;
-    moon.hidden = dark;
+    sun.toggleAttribute('hidden', !dark);
+    moon.toggleAttribute('hidden', dark);
   }
 
   function applyTheme(theme) {

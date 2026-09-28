@@ -190,12 +190,19 @@
               <a href="servicios/"><span data-lang="es">Ver página de servicios</span><span data-lang="en">View services page</span> ↗</a>
             </div>
           </article>
-          <article class="card project-card project-placeholder">
-            <div class="project-label"><span data-lang="es">Próximamente</span><span data-lang="en">Coming next</span></div>
-            <h3 data-lang="es">Más proyectos documentados</h3>
-            <h3 data-lang="en">More documented projects</h3>
-            <p data-lang="es">Añadiré aquí automatizaciones, integraciones o herramientas propias cuando exista una demostración o documentación que permita explicar el problema y la solución con claridad.</p>
-            <p data-lang="en">Automation, integrations or personal tools will be added here once a demo or documentation is available to explain the problem and solution clearly.</p>
+          <article class="card project-card">
+            <div class="project-label"><span data-lang="es">Proyecto propio · Publicado</span><span data-lang="en">Personal project · Published</span></div>
+            <h3><span data-lang="es">Página de servicios digitales</span><span data-lang="en">Digital services page</span></h3>
+            <div class="project-facts">
+              <div data-lang="es"><strong>Problema:</strong> Separar mi presentación profesional de la información sobre servicios para negocios.</div>
+              <div data-lang="en"><strong>Problem:</strong> Separating my professional profile from information about services for businesses.</div>
+              <div data-lang="es"><strong>Solución:</strong> Página independiente con servicios, proceso de trabajo, preguntas frecuentes y formulario de consulta.</div>
+              <div data-lang="en"><strong>Solution:</strong> A separate page with services, a work process, FAQs and an enquiry form.</div>
+              <div><strong><span data-lang="es">Tecnologías:</span><span data-lang="en">Stack:</span></strong> HTML · CSS · JavaScript · Formspree · GitHub Pages</div>
+              <div data-lang="es"><strong>Resultado:</strong> Página publicada, adaptable a móviles y con el origen de las consultas identificado.</div>
+              <div data-lang="en"><strong>Result:</strong> A published, mobile-friendly page with enquiry sources identified.</div>
+            </div>
+            <div class="project-links"><a href="servicios/"><span data-lang="es">Ver página de servicios ↗</span><span data-lang="en">View services page ↗</span></a></div>
           </article>
         </div>
       </div>
@@ -263,7 +270,7 @@
                 <label class="field" for="contact-name"><span><span data-lang="es">Nombre</span><span data-lang="en">Name</span> *</span><input id="contact-name" name="name" autocomplete="name" maxlength="100" required></label>
                 <label class="field" for="contact-email"><span><span data-lang="es">Correo electrónico</span><span data-lang="en">Email</span> *</span><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required></label>
                 <label class="field" for="contact-company"><span><span data-lang="es">Empresa (opcional)</span><span data-lang="en">Company (optional)</span></span><input id="contact-company" name="company" autocomplete="organization" maxlength="150"></label>
-                <label class="field" for="contact-topic"><span><span data-lang="es">Motivo</span><span data-lang="en">Topic</span> *</span><select id="contact-topic" name="topic" required><option value="" data-es="Selecciona una opción" data-en="Choose a topic">Selecciona una opción</option><option value="opportunity" data-es="Oportunidad profesional" data-en="Professional opportunity">Oportunidad profesional</option><option value="project" data-es="Proyecto tecnológico" data-en="Technology project">Proyecto tecnológico</option><option value="other" data-es="Otra consulta" data-en="Other enquiry">Otra consulta</option></select></label>
+                <label class="field" for="contact-topic"><span><span data-lang="es">Motivo</span><span data-lang="en">Topic</span> *</span><select id="contact-topic" name="topic" required><option value="" data-es="Selecciona una opción" data-en="Choose a topic">Selecciona una opción</option><option value="opportunity" data-es="Oportunidad profesional" data-en="Professional opportunity">Oportunidad profesional</option><option value="profile" data-es="Consulta sobre mi perfil" data-en="Enquiry about my profile">Consulta sobre mi perfil</option><option value="other" data-es="Otra consulta" data-en="Other enquiry">Otra consulta</option></select></label>
                 <label class="field field-wide" for="contact-message"><span><span data-lang="es">Mensaje</span><span data-lang="en">Message</span> *</span><textarea id="contact-message" name="message" rows="6" minlength="10" maxlength="5000" required></textarea></label>
               </div>
               <div class="form-trap" aria-hidden="true"><label for="contact-website">Leave this blank</label><input id="contact-website" name="_gotcha" tabindex="-1" autocomplete="off"></div>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Alex Gallart Gimeno, administrador de sistemas en Ibermedia, Valencia. Infraestructura informática, Microsoft 365, Windows Server, redes, automatización y soluciones digitales con n8n.">
-  <meta name="theme-color" content="#07111f">
+  <meta name="theme-color" content="#20241f">
   <script>
     (() => {
       let preference;
@@ -12,7 +12,7 @@
       const theme = preference === 'light' || preference === 'dark' ? preference :
         (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.documentElement.dataset.theme = theme;
-      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#07111f' : '#f4f7fb';
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#20241f' : '#f3f0e8';
     })();
   </script>
   <link rel="canonical" href="https://alegim002.github.io/alex-gallart-portfolio/">
@@ -20,8 +20,8 @@
   <meta property="og:description" content="Conoce mi experiencia en administración de sistemas, Microsoft 365, redes, seguridad y automatización con n8n.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://alegim002.github.io/alex-gallart-portfolio/">
-  <meta property="og:image" content="https://alegim002.github.io/alex-gallart-portfolio/social-preview.png">
-  <meta property="og:image:secure_url" content="https://alegim002.github.io/alex-gallart-portfolio/social-preview.png">
+  <meta property="og:image" content="https://alegim002.github.io/alex-gallart-portfolio/social-preview.png?v=20260928-editorial">
+  <meta property="og:image:secure_url" content="https://alegim002.github.io/alex-gallart-portfolio/social-preview.png?v=20260928-editorial">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -29,7 +29,7 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:site_name" content="Portafolio de Alex Gallart Gimeno">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="https://alegim002.github.io/alex-gallart-portfolio/social-preview.png">
+  <meta name="twitter:image" content="https://alegim002.github.io/alex-gallart-portfolio/social-preview.png?v=20260928-editorial">
   <title>Alex Gallart Gimeno | Administrador de sistemas</title>
   <script type="application/ld+json">
     {
@@ -48,13 +48,13 @@
       ]
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260928-split">
+  <link rel="stylesheet" href="styles.css?v=20260928-editorial">
 </head>
 <body data-page="portfolio">
   <a class="skip" href="#contenido"><span data-lang="es">Saltar al contenido</span><span data-lang="en">Skip to content</span></a>
   <header>
     <nav class="wrap" aria-label="Navegación principal">
-      <a class="brand" href="#top">Alex<span>.</span></a>
+      <a class="brand" href="#top">Alex Gallart<span>.</span></a>
       <div class="nav-links">
         <a href="#perfil"><span data-lang="es">Perfil</span><span data-lang="en">Profile</span></a>
         <a href="#experiencia"><span data-lang="es">Experiencia</span><span data-lang="en">Experience</span></a>
@@ -80,7 +80,7 @@
       <div class="wrap hero-grid">
         <div>
           <div class="eyebrow"><span data-lang="es">Administrador de sistemas</span><span data-lang="en">Systems Administrator</span></div>
-          <h1>Alex Gallart<br><span class="gradient">Gimeno</span></h1>
+          <h1>Alex Gallart<br><span class="surname">Gimeno</span></h1>
           <p class="location"><span data-lang="es">Ibermedia · Valencia, España</span><span data-lang="en">Ibermedia · Valencia, Spain</span></p>
           <p class="lead" data-lang="es">Administro sistemas y doy soporte a entornos empresariales. Trabajo con Microsoft 365, Windows Server, Active Directory y redes. También desarrollo automatizaciones y soluciones digitales con n8n e integro inteligencia artificial (IA) en procesos y herramientas.</p>
           <p class="lead" data-lang="en">I administer systems and support business IT environments. My work covers Microsoft 365, Windows Server, Active Directory and networking. I also develop automation and digital solutions with n8n and integrate artificial intelligence (AI) into processes and tools.</p>
@@ -89,16 +89,17 @@
             <a class="btn btn-secondary" href="#contacto"><span data-lang="es">Contactar</span><span data-lang="en">Get in touch</span></a>
           </div>
         </div>
-        <div class="visual" aria-hidden="true">
-          <div class="orbit one"></div><div class="orbit two"></div>
-          <div class="core">
-            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="25" y="20" width="70" height="80" rx="12" stroke="#55e5dd" stroke-width="4"/>
-              <path d="M39 39h42M39 58h42M39 77h42" stroke="#3ea6ff" stroke-width="5" stroke-linecap="round"/>
-              <circle cx="82" cy="39" r="3" fill="#55e5dd"/><circle cx="82" cy="58" r="3" fill="#55e5dd"/><circle cx="82" cy="77" r="3" fill="#55e5dd"/>
-            </svg>
-          </div>
-        </div>
+        <aside class="profile-note" aria-label="Mi trabajo actual" data-label-es="Mi trabajo actual" data-label-en="My current work">
+          <div class="eyebrow"><span data-lang="es">Mi día a día</span><span data-lang="en">My day-to-day work</span></div>
+          <p class="note-title"><span data-lang="es">Administrador de sistemas en Ibermedia.</span><span data-lang="en">Systems administrator at Ibermedia.</span></p>
+          <p data-lang="es">En Ibermedia me ocupo de los sistemas y del soporte a quienes los utilizan: desde una cuenta de Microsoft 365 hasta la red o las copias de seguridad.</p>
+          <p data-lang="en">At Ibermedia I look after systems and support the people using them, from a Microsoft 365 account to the network or backups.</p>
+          <dl>
+            <div><dt><span data-lang="es">Actualmente</span><span data-lang="en">Currently</span></dt><dd>Ibermedia</dd></div>
+            <div><dt><span data-lang="es">Desde</span><span data-lang="en">Since</span></dt><dd><span data-lang="es">Febrero de 2025</span><span data-lang="en">February 2025</span></dd></div>
+            <div><dt><span data-lang="es">Ubicación</span><span data-lang="en">Location</span></dt><dd>Valencia, <span data-lang="es">España</span><span data-lang="en">Spain</span></dd></div>
+          </dl>
+        </aside>
       </div>
     </section>
 
@@ -166,10 +167,10 @@
       <div class="wrap">
         <div class="section-head">
           <div class="eyebrow"><span data-lang="es">Trabajo propio</span><span data-lang="en">Independent work</span></div>
-          <h2 id="proyectos-title" data-lang="es">Proyectos reales y en evolución</h2>
-          <h2 data-lang="en">Real projects, documented over time</h2>
-          <p data-lang="es">Cada ficha explica el problema, la solución, las tecnologías y el alcance. Solo añado proyectos que pueda mostrar y documentar.</p>
-          <p data-lang="en">Each entry explains the problem, solution, technologies and scope. I only add projects I can show and document.</p>
+          <h2 id="proyectos-title" data-lang="es">Proyectos propios</h2>
+          <h2 data-lang="en">Independent projects</h2>
+          <p data-lang="es">Estos son los sitios que he publicado para presentar mi perfil y mis servicios. Aquí explico cómo están planteados y qué herramientas utilizan.</p>
+          <p data-lang="en">These are the sites I have published to present my profile and services. Here I explain how they are built and which tools they use.</p>
         </div>
         <div class="project-grid">
           <article class="card project-card">
@@ -302,7 +303,7 @@
 
   <footer><div class="wrap"><span>© 2026 Alex Gallart Gimeno</span><button class="privacy-settings" type="button" id="analytics-preferences" hidden><span data-lang="es">Preferencias de privacidad</span><span data-lang="en">Privacy preferences</span></button><span><span data-lang="es">Valencia, España</span><span data-lang="en">Valencia, Spain</span></span></div></footer>
   <script src="language.js?v=20260928-split" defer></script>
-  <script src="theme.js?v=20260928" defer></script>
+  <script src="theme.js?v=20260928-editorial" defer></script>
   <script src="contact.js?v=20260928-split" defer></script>
   <script src="analytics.js?v=20260928-split" defer></script>
 </body>
